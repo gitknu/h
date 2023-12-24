@@ -5,6 +5,133 @@
     <meta content="text/html;charset=utf-8" http-equiv="Content-Type">
     <meta name="viewport" content="width=device-width, initial-scale=0.6">
     <title>JS_AI</title>
+     <script>
+      // do 0
+// re 1
+// mi 2
+// fa 3
+// sol 4
+// la 5
+// si 6
+// do+ 7
+
+var notes = $('.sound');
+
+var note2 = [2,2,2,  2,2,2,  2,4,0,1,2,  3,3,3,  3,2,2,  2,1,1,2,1,4,  2,2,2,  2,2,2,  2,4,0,1,2,  3,3,3,  3,2,2,  4,4,3,1,0];
+var tempo2 = [1,1,2,  1,1,2,  1,1,1,1,4,  1,1,2,  1,1,2,  1,1,1,1,2,2,  1,1,2,  1,1,2,  1,1,1,1,4,  1,1,2,  1,1,2,  1,1,1,1,4];
+
+var note3 = [0,0,1,0,3,2,  0,0,1,0,4,3,  0,0,7,5,3,3,2,1,  6,6,5,3,4,3];
+var tempo3 = [2,1,2,2,2,3,  2,1,2,2,2,3,  2,1,2,2,2,2,2,3,  2,1,2,2,2,3];
+
+var note4 = [0,0,4,4,5,5,4,5,5,2,2,1,1,0,  4,4,3,3,2,2,1,4,4,3,3,2,2,1,  0,0,4,4,5,5,4,3,3,2,2,1,1,0];
+var tempo4 = [2,2,2,2,2,2,4,2,2,2,2,2,2,3,  2,2,2,2,2,2,4,2,2,2,2,2,2,3,  2,2,2,2,2,2,4,2,2,2,2,2,2,3];
+
+$('.note').click(function() {
+  var num = parseInt(this.id);
+  play(num);
+});
+
+$('#btn1').click(function() {
+  var count = 0;
+  for(var i= 0; i < note1.length; i++) {
+    setTimeout(function(sound) {
+      play(note1[sound]);
+    }, rhythm1(i) * 350, i);
+  }
+});
+
+$('#btn2').click(function() {
+  var count = 0;
+  for(var i= 0; i < note2.length; i++) {
+    setTimeout(function(sound) {
+      play(note2[sound]);
+    }, rhythm2(i) * 350, i);
+  }
+});
+
+$('#btn3').click(function() {
+  var count = 0;
+  for(var i= 0; i < note3.length; i++) {
+    setTimeout(function(sound) {
+      play(note3[sound]);
+    }, rhythm3(i) * 350, i);
+  }
+});
+
+$('#btn4').click(function() {
+  var count = 0;
+  for(var i= 0; i < note4.length; i++) {
+    setTimeout(function(sound) {
+      play(note4[sound]);
+    }, rhythm4(i) * 350, i);
+  }
+});
+
+$('#btn5').click(function() {
+  var count = 0;
+  for(var i= 0; i < note5.length; i++) {
+    setTimeout(function(sound) {
+      play(note5[sound]);
+    }, rhythm5(i) * 350, i);
+  }
+});
+
+function play(num) {
+  notes[num].pause();
+  notes[num].currentTime = 0;
+  notes[num].play();
+  $("#" + num).css({
+    "font-weight": "bold",
+    "color": "#FCFBE3"
+  });
+  setTimeout(function() {
+    $("#" + num).css({
+      "font-weight": "normal",
+      "color": "#3a2f21"
+    });
+  }, 300);
+}
+
+function rhythm1(num) {
+  var count = 0;
+  for (var i = 0; i < num ; i++) {
+    count = count + tempo1[i];
+  }
+  return count;
+}
+
+function rhythm2(num) {
+  var count = 0;
+  for (var i = 0; i < num ; i++) {
+    count = count + tempo2[i];
+  }
+  return count;
+}
+
+function rhythm3(num) {
+  var count = 0;
+  for (var i = 0; i < num ; i++) {
+    count = count + tempo3[i];
+  }
+  return count;
+}
+
+function rhythm4(num) {
+  var count = 0;
+  for (var i = 0; i < num ; i++) {
+    count = count + tempo4[i];
+  }
+  return count;
+}
+
+function rhythm5(num) {
+  var count = 0;
+  for (var i = 0; i < num ; i++) {
+    count = count + tempo5[i];
+  }
+  return count;
+}
+    </script>
 <style>
   @function longShadow($number, $color) {
   $box-shadow: 1px 1px #{$color};
@@ -437,132 +564,5 @@ body {
 <audio src="https://raw.githubusercontent.com/cartalan/Xilofono-Exercise/master/sound/7-SI.mp3" class="sound"></audio>
 <audio src="https://raw.githubusercontent.com/cartalan/Xilofono-Exercise/master/sound/8-DO.mp3" class="sound"></audio>
 <h4 style="text-align: center; color: grey;"><i>Оригінал за посиланням: <a href="https://google.com">codepen.io/cartalan/pen/NjPJjj</a></i></h4>
-   <script>
-      // do 0
-// re 1
-// mi 2
-// fa 3
-// sol 4
-// la 5
-// si 6
-// do+ 7
-
-var notes = $('.sound');
-
-var note2 = [2,2,2,  2,2,2,  2,4,0,1,2,  3,3,3,  3,2,2,  2,1,1,2,1,4,  2,2,2,  2,2,2,  2,4,0,1,2,  3,3,3,  3,2,2,  4,4,3,1,0];
-var tempo2 = [1,1,2,  1,1,2,  1,1,1,1,4,  1,1,2,  1,1,2,  1,1,1,1,2,2,  1,1,2,  1,1,2,  1,1,1,1,4,  1,1,2,  1,1,2,  1,1,1,1,4];
-
-var note3 = [0,0,1,0,3,2,  0,0,1,0,4,3,  0,0,7,5,3,3,2,1,  6,6,5,3,4,3];
-var tempo3 = [2,1,2,2,2,3,  2,1,2,2,2,3,  2,1,2,2,2,2,2,3,  2,1,2,2,2,3];
-
-var note4 = [0,0,4,4,5,5,4,5,5,2,2,1,1,0,  4,4,3,3,2,2,1,4,4,3,3,2,2,1,  0,0,4,4,5,5,4,3,3,2,2,1,1,0];
-var tempo4 = [2,2,2,2,2,2,4,2,2,2,2,2,2,3,  2,2,2,2,2,2,4,2,2,2,2,2,2,3,  2,2,2,2,2,2,4,2,2,2,2,2,2,3];
-
-$('.note').click(function() {
-  var num = parseInt(this.id);
-  play(num);
-});
-
-$('#btn1').click(function() {
-  var count = 0;
-  for(var i= 0; i < note1.length; i++) {
-    setTimeout(function(sound) {
-      play(note1[sound]);
-    }, rhythm1(i) * 350, i);
-  }
-});
-
-$('#btn2').click(function() {
-  var count = 0;
-  for(var i= 0; i < note2.length; i++) {
-    setTimeout(function(sound) {
-      play(note2[sound]);
-    }, rhythm2(i) * 350, i);
-  }
-});
-
-$('#btn3').click(function() {
-  var count = 0;
-  for(var i= 0; i < note3.length; i++) {
-    setTimeout(function(sound) {
-      play(note3[sound]);
-    }, rhythm3(i) * 350, i);
-  }
-});
-
-$('#btn4').click(function() {
-  var count = 0;
-  for(var i= 0; i < note4.length; i++) {
-    setTimeout(function(sound) {
-      play(note4[sound]);
-    }, rhythm4(i) * 350, i);
-  }
-});
-
-$('#btn5').click(function() {
-  var count = 0;
-  for(var i= 0; i < note5.length; i++) {
-    setTimeout(function(sound) {
-      play(note5[sound]);
-    }, rhythm5(i) * 350, i);
-  }
-});
-
-function play(num) {
-  notes[num].pause();
-  notes[num].currentTime = 0;
-  notes[num].play();
-  $("#" + num).css({
-    "font-weight": "bold",
-    "color": "#FCFBE3"
-  });
-  setTimeout(function() {
-    $("#" + num).css({
-      "font-weight": "normal",
-      "color": "#3a2f21"
-    });
-  }, 300);
-}
-
-function rhythm1(num) {
-  var count = 0;
-  for (var i = 0; i < num ; i++) {
-    count = count + tempo1[i];
-  }
-  return count;
-}
-
-function rhythm2(num) {
-  var count = 0;
-  for (var i = 0; i < num ; i++) {
-    count = count + tempo2[i];
-  }
-  return count;
-}
-
-function rhythm3(num) {
-  var count = 0;
-  for (var i = 0; i < num ; i++) {
-    count = count + tempo3[i];
-  }
-  return count;
-}
-
-function rhythm4(num) {
-  var count = 0;
-  for (var i = 0; i < num ; i++) {
-    count = count + tempo4[i];
-  }
-  return count;
-}
-
-function rhythm5(num) {
-  var count = 0;
-  for (var i = 0; i < num ; i++) {
-    count = count + tempo5[i];
-  }
-  return count;
-}
-    </script>
   </body>
 </html>
